@@ -50,7 +50,7 @@ class LoginController extends Controller
     public function handleProviderGoogleCallback()
     {
         $auth_user = Socialite::driver('google')->user();
-        $user = User::updateOrCreate(['email' => $auth_user->email], ['refresh_token' => "1/6Dv1Vy7PxQ_5n0UqjMZgKA_XwHCCHRGlgAIeuzaORGU", 'name' => $auth_user->name]);
+        $user = User::updateOrCreate(['email' => $auth_user->email], ['refresh_token' => "refresh_token", 'name' => $auth_user->name]);
         Auth::login($user, true);
     return redirect()->to('/'); // Redirect to a secure page
 }
